@@ -47,3 +47,76 @@ export const SOCIAL = {
   twitter: "https://twitter.com/byten",
   linkedin: "https://linkedin.com/company/byten",
 } as const;
+
+export const SIDEBAR_NAV = {
+  dashboard: {
+    label: "Dashboard",
+    href: "/dashboard",
+    icon: "dashboard",
+  },
+  businessManagement: {
+    label: "Business Management",
+    href: "/business",
+    icon: "business",
+  },
+  productManagement: {
+    label: "Product Management",
+    href: "/products",
+    icon: "products",
+  },
+  materialManagement: {
+    label: "Material Management",
+    href: "/materials",
+    icon: "materials",
+  },
+  templateManagement: {
+    label: "Template Management",
+    href: "/templates",
+    icon: "templates",
+  },
+  userManagement: {
+    label: "User Management",
+    href: "/users",
+    icon: "users",
+  },
+  roleManagement: {
+    label: "Role Management",
+    href: "/roles",
+    icon: "roles",
+  },
+  reports: {
+    label: "Reports",
+    href: "/reports",
+    icon: "reports",
+  },
+  analytics: {
+    label: "Analytics",
+    href: "/analytics",
+    icon: "analytics",
+  },
+  approvals: {
+    label: "Approvals",
+    href: "/approvals",
+    icon: "approvals",
+  },
+  dataTransfer: {
+    label: "Data Transfer",
+    href: "/data-transfer",
+    icon: "transfer",
+  },
+  syncStatus: {
+    label: "Sync Status",
+    href: "/sync-status",
+    icon: "sync",
+  },
+  support: {
+    label: "Support",
+    href: "/support",
+    icon: "support",
+  },
+  settings: {
+    label: "Settings",
+    href: "/settings",
+    icon: "settings",
+  },
+} as const;

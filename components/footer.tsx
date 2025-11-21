@@ -1,11 +1,23 @@
+"use client";
+
 import { Link } from "@heroui/link";
 import { COMPANY, PRODUCT, SOCIAL } from "@/config/constants";
+import { useSidebarStore } from "@/stores/sidebar-store";
+import clsx from "clsx";
 
 export const Footer = () => {
+  const isCollapsed = useSidebarStore((state) => state.isCollapsed);
+
   return (
     <footer className="w-full border-t border-divider py-6">
-      <div className="container mx-auto max-w-7xl px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div
+        className={clsx(
+          "mx-auto px-6 transition-all duration-300",
+          isCollapsed ? "lg:ml-20" : "lg:ml-64"
+        )}
+        style={{ maxWidth: "calc(1280px + (100vw - 1280px) / 2)" }}
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl">
           {/* Left side - Company info */}
           <div className="flex flex-col items-center md:items-start gap-1">
             <p className="text-sm font-semibold">{PRODUCT.name}</p>

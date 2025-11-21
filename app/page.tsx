@@ -14,9 +14,9 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col -m-6">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center gap-6 py-16 md:py-24">
+      <section className="flex flex-col items-center justify-center gap-6 py-16 md:py-24 px-6">
         <Chip color="primary" variant="flat" size="sm">
           {COMPANY.tagline}
         </Chip>
@@ -72,7 +72,7 @@ export default async function Home() {
       </section>
 
       {/* Simple Features Section */}
-      <section className="py-16 border-t border-divider">
+      <section className="py-16 border-t border-divider px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-none bg-default-50/50">

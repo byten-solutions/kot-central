@@ -3,7 +3,11 @@
 import { Button } from "@heroui/button";
 import { useRouter } from "next/navigation";
 
-export default function LogoutButton() {
+interface LogoutButtonProps {
+  variant?: "solid" | "flat" | "text";
+}
+
+export default function LogoutButton({ variant = "flat" }: LogoutButtonProps) {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -14,8 +18,16 @@ export default function LogoutButton() {
     router.refresh();
   };
 
+  if (variant === "text") {
+    return (
+      <span onClick={handleLogout} className="cursor-pointer w-full">
+        Logout
+      </span>
+    );
+  }
+
   return (
-    <Button color="danger" variant="flat" onPress={handleLogout}>
+    <Button color="danger" variant={variant} onPress={handleLogout}>
       Logout
     </Button>
   );

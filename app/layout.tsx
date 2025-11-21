@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -9,6 +8,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Sidebar } from "@/components/sidebar";
+import { isAuthenticated } from "@/lib/auth/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -28,11 +29,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const authenticated = await isAuthenticated();
+
   return (
     <html suppressHydrationWarning lang="en">
       <head />
@@ -43,11 +46,15 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
+            {/* @ts-expect-error Async Server Component */}
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
+            <div className="flex flex-1 pt-16">
+              {authenticated && <Sidebar />}
+              <main className="flex-1 transition-all duration-300 p-6">
+                <div className="container mx-auto max-w-7xl">{children}</div>
+              </main>
+            </div>
             <Footer />
           </div>
         </Providers>
