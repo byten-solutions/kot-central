@@ -47,7 +47,6 @@ export default async function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col min-h-screen">
-            {/* @ts-expect-error Async Server Component */}
             <Navbar />
             <div className="flex flex-1 pt-16">
               {authenticated && <Sidebar />}
